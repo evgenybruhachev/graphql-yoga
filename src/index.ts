@@ -49,7 +49,6 @@ import { defaultErrorFormatter } from './defaultErrorFormatter'
 export { MockList } from 'graphql-tools'
 export { PubSub, withFilter } from 'graphql-subscriptions'
 export { Options, OptionsWithHttps, OptionsWithoutHttps }
-export { GraphQLServerLambda } from './lambda'
 
 // TODO remove once `@types/graphql` is fixed for `execute`
 type ExecuteFunction = (

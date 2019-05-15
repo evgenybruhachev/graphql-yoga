@@ -68,8 +68,6 @@ exports.MockList = graphql_tools_2.MockList;
 var graphql_subscriptions_1 = require("graphql-subscriptions");
 exports.PubSub = graphql_subscriptions_1.PubSub;
 exports.withFilter = graphql_subscriptions_1.withFilter;
-var lambda_1 = require("./lambda");
-exports.GraphQLServerLambda = lambda_1.GraphQLServerLambda;
 var GraphQLServer = /** @class */ (function () {
     function GraphQLServer(props) {
         this.subscriptionServerOptions = null;

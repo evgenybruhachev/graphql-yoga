@@ -7,7 +7,6 @@ import { ExecutionParams } from 'subscriptions-transport-ws';
 import { LogFunction } from 'apollo-server-core';
 import { IMocks, IResolvers } from 'graphql-tools';
 import { IMiddleware as IFieldMiddleware, IMiddlewareGenerator as IFieldMiddlewareGenerator, FragmentReplacement } from 'graphql-middleware';
-import { APIGatewayProxyEvent, Context as LambdaContext } from 'aws-lambda';
 export declare type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 export declare type Context = {
     [key: string]: any;
@@ -18,12 +17,7 @@ export interface ContextParameters {
     connection: ExecutionParams;
     fragmentReplacements: FragmentReplacement[];
 }
-export interface LambdaContextParameters {
-    event: APIGatewayProxyEvent;
-    context: LambdaContext;
-}
 export declare type ContextCallback = (params: ContextParameters) => Context;
-export declare type LambdaContextCallback = (params: LambdaContextParameters) => Context;
 export interface UploadOptions {
     maxFieldSize?: number;
     maxFileSize?: number;
@@ -95,7 +89,7 @@ export interface LambdaProps<TFieldMiddlewareSource = any, TFieldMiddlewareConte
     resolvers?: IResolvers;
     resolverValidationOptions?: IResolverValidationOptions;
     schema?: GraphQLSchema;
-    context?: Context | LambdaContextCallback;
+    context?: Context;
     options?: LambdaOptions;
     middlewares?: (IFieldMiddleware<TFieldMiddlewareSource, TFieldMiddlewareContext, TFieldMiddlewareArgs> | IFieldMiddlewareGenerator<TFieldMiddlewareSource, TFieldMiddlewareContext, TFieldMiddlewareArgs>)[];
 }

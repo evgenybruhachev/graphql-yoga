@@ -8,7 +8,6 @@ import { SubscriptionServerOptions, Options, OptionsWithHttps, OptionsWithoutHtt
 export { MockList } from 'graphql-tools';
 export { PubSub, withFilter } from 'graphql-subscriptions';
 export { Options, OptionsWithHttps, OptionsWithoutHttps };
-export { GraphQLServerLambda } from './lambda';
 export declare class GraphQLServer {
     express: express.Application;
     subscriptionServer: SubscriptionServer | null;

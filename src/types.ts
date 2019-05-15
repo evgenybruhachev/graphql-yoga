@@ -15,7 +15,6 @@ import {
   IMiddlewareGenerator as IFieldMiddlewareGenerator,
   FragmentReplacement,
 } from 'graphql-middleware'
-import { APIGatewayProxyEvent, Context as LambdaContext } from 'aws-lambda'
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
 
@@ -28,14 +27,7 @@ export interface ContextParameters {
   fragmentReplacements: FragmentReplacement[]
 }
 
-export interface LambdaContextParameters {
-  event: APIGatewayProxyEvent
-  context: LambdaContext
-}
-
 export type ContextCallback = (params: ContextParameters) => Context
-
-export type LambdaContextCallback = (params: LambdaContextParameters) => Context
 
 // check https://github.com/jaydenseric/apollo-upload-server#options for documentation
 export interface UploadOptions {
@@ -141,7 +133,7 @@ export interface LambdaProps<
   resolvers?: IResolvers
   resolverValidationOptions?: IResolverValidationOptions
   schema?: GraphQLSchema
-  context?: Context | LambdaContextCallback
+  context?: Context
   options?: LambdaOptions
   middlewares?: (
     | IFieldMiddleware<
